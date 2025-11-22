@@ -3,7 +3,7 @@ import requests
 import base64
 
 
-API_URL = "http://127.0.0.1:8000/generate"
+API_URL = "https://aiviralx-snack-sensei-backend.hf.space/generate"
 
 st.set_page_config(page_title="Snack Sensei", layout="wide")
 
@@ -18,7 +18,7 @@ with st.sidebar:
 if generate_btn and user_input:
     with st.spinner("🧠 Orchestrating Recipe (LLM + Image Gen + Video Search)..."):
         try:
-            # Note: When running locally outside docker, change API_URL to http://127.0.0.1:8000/generate
+            # Note: When running locally, change API_URL to http://127.0.0.1:8000/generate
             response = requests.post(API_URL, json={"query": user_input})
             
             if response.status_code == 200:
